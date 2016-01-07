@@ -3,11 +3,14 @@
 module GeneratedAssets
   class Manifest
     attr_reader :app, :prefix, :entries
+    attr_reader :before_hooks, :after_hooks
 
     def initialize(app, prefix)
       @app = app
       @prefix = prefix
       @entries = []
+      @before_hooks = []
+      @after_hooks = []
     end
 
     def add(logical_path, options = {}, &block)
@@ -15,8 +18,20 @@ module GeneratedAssets
     end
 
     def apply!
+      before_hooks.each(&:call)
+
       write_files
       add_precompile_paths
+
+      after_hooks.each(&:call)
+    end
+
+    def before_apply(&block)
+      before_hooks << block
+    end
+
+    def after_apply(&block)
+      after_hooks << block
     end
 
     private

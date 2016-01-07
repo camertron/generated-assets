@@ -13,7 +13,12 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.has_rdoc = true
 
-  s.add_dependency 'railties', "~> #{ENV['RAILS_VERSION']}" || '>= 3.2.0', '< 5'
+  if ENV['RAILS_VERSION']
+    s.add_dependency 'railties', "~> #{ENV['RAILS_VERSION']}"
+  else
+    s.add_dependency 'railties', '>= 3.2.0', '< 5'
+  end
+
   s.add_dependency 'sprockets-rails'
   s.add_dependency 'tilt'
   s.add_dependency 'tzinfo'

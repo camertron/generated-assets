@@ -1,7 +1,6 @@
 # encoding: UTF-8
 
 require 'spec_helper'
-require 'helpers/rails_manifest'
 require 'pathname'
 
 include GeneratedAssets
