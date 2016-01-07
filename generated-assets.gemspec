@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency 'sprockets-rails'
-  s.add_dependency 'tilt'
   s.add_dependency 'tzinfo'
 
   s.require_path = 'lib'
