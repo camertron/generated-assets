@@ -5,3 +5,7 @@ Birthday!
 == 1.0.1
 
 * Removing tilt as a dependency.
+
+== 1.1.0
+
+* Removing config check causing assets to not get compiled in production.
