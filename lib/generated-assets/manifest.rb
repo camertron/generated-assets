@@ -45,9 +45,20 @@ module GeneratedAssets
     def add_precompile_paths
       entries.each do |entry|
         if entry.precompile?
-          app.config.assets.precompile << entry.logical_path
+          app.config.assets.precompile << remove_extra_extensions(
+            entry.logical_path
+          )
         end
       end
+    end
+
+    def remove_extra_extensions(path)
+      until File.extname(path).empty?
+        ext = File.extname(path)
+        path = path.chomp(ext)
+      end
+
+      "#{path}#{ext}"
     end
   end
 end
