@@ -9,3 +9,7 @@ Birthday!
 == 1.1.0
 
 * Removing config check causing assets to not get compiled in production.
+
+== 1.1.1
+
+* Delay creating a temp directory until assets are actually written.

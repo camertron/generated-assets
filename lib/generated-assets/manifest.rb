@@ -1,5 +1,7 @@
 # encoding: UTF-8
 
+require 'fileutils'
+
 module GeneratedAssets
   class Manifest
     attr_reader :app, :prefix, :entries
@@ -37,9 +39,15 @@ module GeneratedAssets
     private
 
     def write_files
+      ensure_prefix_dir_exists unless entries.empty?
+
       entries.each do |entry|
         entry.write_to(prefix)
       end
+    end
+
+    def ensure_prefix_dir_exists
+      FileUtils.mkdir_p(prefix)
     end
 
     def add_precompile_paths
