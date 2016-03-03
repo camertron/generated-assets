@@ -16,19 +16,29 @@ describe 'precompilation' do
     )
   end
 
-  it 'precompiles generated assets correctly' do
-    assets_config.generated.add('foo/bar.txt', precompile: true) do
-      'bar text'
-    end
+  let(:prefix) do
+    Pathname(assets_config.generated.prefix)
+  end
 
-    assets_config.generated.apply!
-
+  def run_precompile_task
     begin
       Rake::Task['assets:precompile:primary'].invoke
       Rake::Task['assets:precompile:nondigest'].invoke
     rescue RuntimeError
       Rake::Task['assets:precompile'].invoke
     end
+  end
+
+  it 'precompiles generated assets correctly' do
+    assets_config.generated.add('foo/bar.txt', precompile: true) do
+      'bar text'
+    end
+
+    expect(prefix).to_not exist
+    assets_config.generated.apply!
+    expect(prefix).to exist
+
+    run_precompile_task
 
     rails_manifest = RailsManifest.load_for(app)
     digest_file = rails_manifest.find_by_logical('foo/bar.txt')
@@ -36,5 +46,13 @@ describe 'precompilation' do
     expect(digest_file).to_not be_nil
     contents = asset_path.join(digest_file).read
     expect(contents).to eq('bar text')
+  end
+
+  it 'does not create a temp directory if no assets have been added' do
+    expect(prefix).to_not exist
+    assets_config.generated.apply!
+    expect(prefix).to_not exist
+    run_precompile_task
+    expect(prefix).to_not exist
   end
 end
