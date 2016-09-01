@@ -13,7 +13,13 @@ module GeneratedAssets
   class << self
     def asset_dir
       @asset_dir ||= begin
-        File.join(Dir.tmpdir, SecureRandom.hex)
+        locales_dir = "#{::Rails.root}/config/locales"
+        locales = Dir.entries(locales_dir).select {|locale| File.extname(locale) == ".yml"}
+        mtime_paths = locales.map do |locale|
+          mtime = File.mtime("#{locales_dir}/#{locale}")
+        end
+        dir_name = mtime_paths.join("")
+        File.join(Dir.tmpdir, Digest::SHA256.new.hexdigest(dir_name))
       end
     end
   end
