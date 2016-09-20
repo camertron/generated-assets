@@ -13,7 +13,7 @@ module GeneratedAssets
   class << self
     def asset_dir
       @asset_dir ||= begin
-        File.join(Dir.tmpdir, SecureRandom.hex)
+        File.join(Dir.tmpdir, "generated-assets")
       end
     end
   end
