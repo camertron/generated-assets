@@ -12,7 +12,7 @@ module GeneratedAssets
       app.config.assets.generated.apply!
     end
 
-    initializer :i18n_js_assets, group: :all do |app|
+    initializer :generated_assets, group: :all do |app|
       app.config.assets.paths << File.join(
         GeneratedAssets.asset_dir, app.class.parent_name
       )

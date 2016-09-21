@@ -13,3 +13,7 @@ Birthday!
 == 1.1.1
 
 * Delay creating a temp directory until assets are actually written.
+
+== 1.2.0
+
+* Use static instead of randomly generated directory name.
