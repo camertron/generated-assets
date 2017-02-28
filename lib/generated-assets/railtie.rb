@@ -25,7 +25,7 @@ module GeneratedAssets
         when Class               # rails 5
           app.parent_name
         else
-          app.class.parent_name  # rails 4
+          app.class.parent_name  # rails 3, 4
       end
     end
   end
