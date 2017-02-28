@@ -17,3 +17,8 @@ Birthday!
 == 2.0.0
 
 * Use static instead of randomly generated directory name.
+
+== 2.1.0
+
+* Support for Rails 5.
+
