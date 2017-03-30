@@ -22,3 +22,7 @@ Birthday!
 
 * Support for Rails 5.
 
+== 2.1.1
+
+* Don't apply generated assets if asset compilation is turned off (i.e. if
+  config.assets.compile is false).
