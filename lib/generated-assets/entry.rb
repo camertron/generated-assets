@@ -21,7 +21,7 @@ module GeneratedAssets
     def write_to(prefix)
       path = File.join(prefix, logical_path)
       FileUtils.mkdir_p(File.dirname(path))
-      File.write(path, callback.call)
+      File.binwrite(path, callback.call)
     end
   end
 end

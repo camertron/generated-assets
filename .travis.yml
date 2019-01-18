@@ -4,37 +4,51 @@ script: bundle exec rspec spec
 
 matrix:
   include:
-  - rvm: 2.1.6
+  - rvm: 2.1.8
     env: RAILS_VERSION=3.2
-  - rvm: 2.2.6
+  - rvm: 2.2.10
     env: RAILS_VERSION=3.2
-  - rvm: 2.3.3
+  - rvm: 2.3.7
     env: RAILS_VERSION=3.2
 
-  - rvm: 2.1.6
+  - rvm: 2.1.8
     env: RAILS_VERSION=4.0
-  - rvm: 2.2.6
+  - rvm: 2.2.10
     env: RAILS_VERSION=4.0
-  - rvm: 2.3.3
+  - rvm: 2.3.7
     env: RAILS_VERSION=4.0
 
-  - rvm: 2.1.6
+  - rvm: 2.1.8
     env: RAILS_VERSION=4.1
-  - rvm: 2.2.6
+  - rvm: 2.2.10
     env: RAILS_VERSION=4.1
-  - rvm: 2.3.3
+  - rvm: 2.3.7
     env: RAILS_VERSION=4.1
 
-  - rvm: 2.1.6
+  - rvm: 2.1.8
     env: RAILS_VERSION=4.2
-  - rvm: 2.2.6
+  - rvm: 2.2.10
     env: RAILS_VERSION=4.2
-  - rvm: 2.3.3
+  - rvm: 2.3.7
     env: RAILS_VERSION=4.2
 
-  - rvm: 2.2.6
+  - rvm: 2.4.2
     env: RAILS_VERSION=5.0
-  - rvm: 2.3.3
+  - rvm: 2.5.3
     env: RAILS_VERSION=5.0
-  - rvm: 2.4.0
+  - rvm: 2.6.0
     env: RAILS_VERSION=5.0
+
+  - rvm: 2.3.7
+    env: RAILS_VERSION=5.1
+  - rvm: 2.4.2
+    env: RAILS_VERSION=5.1
+  - rvm: 2.5.3
+    env: RAILS_VERSION=5.1
+
+  - rvm: 2.4.2
+    env: RAILS_VERSION=5.2
+  - rvm: 2.5.3
+    env: RAILS_VERSION=5.2
+  - rvm: 2.6.0
+    env: RAILS_VERSION=5.2

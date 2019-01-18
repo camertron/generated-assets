@@ -26,3 +26,7 @@ Birthday!
 
 * Don't apply generated assets if asset compilation is turned off (i.e. if
   config.assets.compile is false).
+
+== 2.1.2
+
+* Use File.binwrite instead of File.write to avoid encoding issues.
