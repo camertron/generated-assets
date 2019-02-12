@@ -9,9 +9,7 @@ module GeneratedAssets
     end
 
     config.after_initialize do |app|
-      if app.config.assets.compile
-        app.config.assets.generated.apply!
-      end
+      app.config.assets.generated.apply!
     end
 
     initializer :generated_assets, group: :all do |app|
