@@ -62,6 +62,8 @@ module GeneratedAssets
       app.config.assets.compile ||
       compile || (
         defined?(::Rake) &&
+          ::Rake.respond_to?(:application) &&
+          ::Rake.application.respond_to?(:top_level_tasks) &&
           ::Rake.application.top_level_tasks.include?('assets:precompile')
       )
     end
