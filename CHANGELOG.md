@@ -1,3 +1,7 @@
+2.1.4
+===
+* Better checks for knowing when we're in a precompilation context, i.e. don't assume Rake#application is defined.
+
 2.1.3
 ===
 * Apply generated assets when precompiling, and allow applying to be enabled manually by setting `config.assets.generated.compile = true`.
