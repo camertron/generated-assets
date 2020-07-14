@@ -21,11 +21,20 @@ module GeneratedAssets
 
   module RailtieHelper
     def self.app_name_for(app)
-      case app
-        when Class               # rails 5
-          app.parent_name
-        else
-          app.class.parent_name  # rails 3, 4
+      if ::Rails::VERSION::MAJOR >= 6
+        case app
+          when Class
+            app.module_parent_name
+          else
+            app.class.module_parent_name
+        end
+      else
+        case app
+          when Class               # rails 5
+            app.parent_name
+          else
+            app.class.parent_name  # rails 3, 4
+        end
       end
     end
   end
