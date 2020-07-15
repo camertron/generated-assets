@@ -1,3 +1,7 @@
+2.1.5
+===
+* Fix deprecation warning by using `#module_parent_name` for Rails >= 6.
+
 2.1.4
 ===
 * Better checks for knowing when we're in a precompilation context, i.e. don't assume Rake#application is defined.
