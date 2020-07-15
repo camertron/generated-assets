@@ -11,7 +11,6 @@ Gem::Specification.new do |s|
   s.description = s.summary = 'Programmatically generate assets for the Rails asset pipeline.'
 
   s.platform = Gem::Platform::RUBY
-  s.has_rdoc = true
 
   if ENV['RAILS_VERSION']
     s.add_dependency 'railties', "~> #{ENV['RAILS_VERSION']}"
